@@ -55,6 +55,7 @@ pub struct ParserContext {
 
 impl ParserContext {
     pub fn new() -> ParserContext {
+        debug!("created parser context");
         ParserContext {
             in_user_agent_stylesheet: false,
             default_namespace: None,
@@ -241,6 +242,8 @@ pub fn parse_selector_list<Impl: SelectorImpl>(context: &ParserContext, input: &
 ///
 /// `Err` means invalid selector.
 fn parse_selector<Impl: SelectorImpl>(context: &ParserContext, input: &mut Parser) -> Result<Selector<Impl>, ()> {
+    debug!("Parse");
+
     let (first, mut pseudo_element) = try!(parse_simple_selectors(context, input));
     let mut compound = CompoundSelector{ simple_selectors: first, next: None };
 
