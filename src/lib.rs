@@ -7,6 +7,7 @@
 #![cfg_attr(feature = "heap_size", plugin(heapsize_plugin))]
 
 #[cfg(feature = "heap_size")] extern crate heapsize;
+#[macro_use] extern crate log;
 #[macro_use] extern crate bitflags;
 #[macro_use] extern crate cssparser;
 #[macro_use] extern crate matches;

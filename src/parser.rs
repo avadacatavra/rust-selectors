@@ -564,10 +564,10 @@ fn parse_functional_pseudo_class<Impl: SelectorImpl>(context: &ParserContext,
     }
 }
 
-
 fn parse_nth_pseudo_class<Impl: SelectorImpl, F>(input: &mut Parser, selector: F) -> Result<SimpleSelector<Impl>, ()>
 where F: FnOnce(i32, i32) -> SimpleSelector<Impl> {
     let (a, b) = try!(parse_nth(input));
+    debug!("Parse nth!! {}, {}", a, b);
     Ok(selector(a, b))
 }
 
